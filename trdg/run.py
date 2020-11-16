@@ -52,7 +52,7 @@ def parse_arguments():
         type=str,
         nargs="?",
         help="The language to use, should be fr (French), en (English), es (Spanish), de (German), ar (Arabic), cn (Chinese), or hi (Hindi)",
-        default="en",
+        default="tw",
     )
     parser.add_argument(
         "-c",
@@ -311,7 +311,7 @@ def parse_arguments():
     parser.add_argument(
         "-stw",
         "--stroke_width",
-        type=int, 
+        type=int,
         nargs="?",
         help="Define the width of the strokes",
         default=0,
@@ -319,7 +319,7 @@ def parse_arguments():
     parser.add_argument(
         "-stf",
         "--stroke_fill",
-        type=str, 
+        type=str,
         nargs="?",
         help="Define the color of the contour of the strokes, if stroke_width is bigger than 0",
         default="#282828",

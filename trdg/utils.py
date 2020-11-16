@@ -33,8 +33,8 @@ def load_fonts(lang):
         ]
     else:
         return [
-            os.path.join(os.path.dirname(__file__), "fonts/latin", font)
+            os.path.join(os.path.dirname(__file__), "fonts/tw", font)
             for font in os.listdir(
-                os.path.join(os.path.dirname(__file__), "fonts/latin")
+                os.path.join(os.path.dirname(__file__), "fonts/tw")
             )
         ]
