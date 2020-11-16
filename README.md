@@ -201,11 +201,10 @@ Number of images generated per second.
     - `-t 4` : 2107 img/s
     - `-t 8` : 3297 img/s
 
-## Contributing
+## Credit
+[![TextRecognitionDataGenerator](https://github.com/Belval/TextRecognitionDataGenerator)]
 
-1. Create an issue describing the feature you'll be working on
-2. Code said feature
-3. Create a pull request
+
 
 ## Feature request & issues
 
