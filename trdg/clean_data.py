@@ -12,22 +12,25 @@ def unicode_to_ascii(s):
 '''Normalize special characters'''
 def normalize(s):
     s = unicode_to_ascii(s)
-    s = re.sub(r'([!.?])', r' \1', s)
-    s = re.sub(r'[^a-zA-Z.,ƆɔɛƐ!?’\'\"\\]+', r'', s)
-    s = re.sub(r'\s+', r' ', s)
+    # s = re.sub(r'([!.?])', r' \1', s)
+    s = re.sub(r'[^a-zA-ZƆɔɛƐↃƆɔↄᴐɛƐε’\'\"\n]+', r'', s)
+    s = re.sub(r'\s+', r'', s)
     return s
 
 
 '''Find all matches of words with special characters and clean them'''
 def findall(s):
+    s = [normalize(word) for word in s]
     match = []
     for idx, word in enumerate(s):
         for x in word:
             if x in ['Ↄ','Ɔ','ɔ','ↄ','ᴐ','ɛ','Ɛ','ε']:
                 match.append(s.pop(idx))
     # xx = re.findall(r'([ↃƆɔↄᴐɛƐ])', ' '.join(s)) # Find all matches of \ special characters
+    print(s)
     clean = replace(match)
     return s + clean
+
 
 '''Cleaning'''
 def replace(s):
@@ -53,7 +56,7 @@ def main():
 
     '''Save cleaned text'''
     with open('tw1.txt', 'w') as f:
-        f.write(''.join(x))
+        f.write('\n'.join(x))
 
 
 if __name__ == "__main__":

@@ -15,7 +15,7 @@ class GeneratorFromDict:
         length=1,
         allow_variable=False,
         fonts=[],
-        language="en",
+        language="tw",
         size=32,
         skewing_angle=0,
         random_skew=False,
@@ -38,7 +38,7 @@ class GeneratorFromDict:
         image_dir=os.path.join(
             "..", os.path.split(os.path.realpath(__file__))[0], "images"
         ),
-        stroke_width=0, 
+        stroke_width=0,
         stroke_fill="#282828",
         image_mode="RGB",
     ):
