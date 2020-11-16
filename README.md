@@ -1,4 +1,4 @@
-# TextRecognitionDataGenerator [![TravisCI](https://travis-ci.org/Belval/TextRecognitionDataGenerator.svg?branch=master)](https://travis-ci.org/Belval/TextRecognitionDataGenerator) [![PyPI version](https://badge.fury.io/py/trdg.svg)](https://badge.fury.io/py/trdg) [![codecov](https://codecov.io/gh/Belval/TextRecognitionDataGenerator/branch/master/graph/badge.svg)](https://codecov.io/gh/Belval/TextRecognitionDataGenerator) [![Documentation Status](https://readthedocs.org/projects/textrecognitiondatagenerator/badge/?version=latest)](https://textrecognitiondatagenerator.readthedocs.io/en/latest/?badge=latest) [![mattermost](https://img.shields.io/badge/help-mattermost-blue)](https://mattermost.belval.org/signup_user_complete/?id=6j1pj6itd7y4781o1u813796ry)
+# TextRecognitionDataGenerator 
 
 A synthetic data generator for text recognition
 
@@ -202,13 +202,10 @@ Number of images generated per second.
     - `-t 8` : 3297 img/s
 
 ## Credit
-[![TextRecognitionDataGenerator](https://github.com/Belval/TextRecognitionDataGenerator)]
+This Repo was taken from [![TextRecognitionDataGenerator](https://github.com/Belval/TextRecognitionDataGenerator)]. Special Thanks to (@Belval).
 
 
 
-## Feature request & issues
-
-If anything is missing, unclear, or simply not working, open an issue on the repository.
 
 ## What is left to do?
 - Better background generation
