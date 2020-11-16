@@ -354,7 +354,7 @@ def main():
     if args.dict:
         lang_dict = []
         if os.path.isfile(args.dict):
-            with open(args.dict, "r", encoding="utf8", errors="ignore") as d:
+            with open(args.dict, "r", encoding="utf-8", errors="ignore") as d:
                 lang_dict = [l for l in d.read().splitlines() if len(l) > 0]
         else:
             sys.exit("Cannot open dict")
@@ -464,7 +464,7 @@ def main():
     if args.name_format == 2:
         # Create file with filename-to-label connections
         with open(
-            os.path.join(args.output_dir, "labels.txt"), "w", encoding="utf8"
+            os.path.join(args.output_dir, "labels.txt"), "w", encoding="utf-8"
         ) as f:
             for i in range(string_count):
                 file_name = str(i) + "." + args.extension

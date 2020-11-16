@@ -4,12 +4,12 @@ import random as rnd
 from PIL import Image, ImageFilter
 
 from trdg import computer_text_generator, background_generator, distorsion_generator
-
+'''
 try:
     from trdg import handwritten_text_generator
 except ImportError as e:
     print("Missing modules for handwritten text generation.")
-
+'''
 
 class FakeTextDataGenerator(object):
     @classmethod
@@ -49,9 +49,9 @@ class FakeTextDataGenerator(object):
         output_mask,
         word_split,
         image_dir,
-        stroke_width=0, 
+        stroke_width=0,
         stroke_fill="#282828",
-        image_mode="RGB", 
+        image_mode="RGB",
     ):
         image = None
 
@@ -77,7 +77,7 @@ class FakeTextDataGenerator(object):
                 character_spacing,
                 fit,
                 word_split,
-                stroke_width, 
+                stroke_width,
                 stroke_fill,
             )
         random_angle = rnd.randint(0 - skewing_angle, skewing_angle)
@@ -213,13 +213,13 @@ class FakeTextDataGenerator(object):
         )
         final_image = background_img.filter(gaussian_filter)
         final_mask = background_mask.filter(gaussian_filter)
-        
+
         ############################################
         # Change image mode (RGB, grayscale, etc.) #
         ############################################
-        
+
         final_image = final_image.convert(image_mode)
-        final_mask = final_mask.convert(image_mode) 
+        final_mask = final_mask.convert(image_mode)
 
         #####################################
         # Generate name for resulting image #
