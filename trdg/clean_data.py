@@ -2,9 +2,9 @@ import unicodedata
 import re
 
 
-special_char1 = ['Ɔ', 'ɔ', 'ↄ', 'ᴐ', 'ɔ', 'ɔ', 'Ɔ', 'Ↄ', 'Ɔ', 'ɔ', 'ↄ', 'ᴐ', 'Ɔ']
-special_char2 = ['ɛ', 'Ɛ', 'ɛ', 'Ɛ', 'ε', 'ɛ', 'Ɛ', 'ε']
-
+special_char1 = [chr(390), chr(596), chr(7440), chr(8579), chr(8580)] #Character codes for all occurances of"ɔ"
+special_char2 = [chr(400), chr(603), chr(949)] #Character codes for all coccurance of "ɛ"
+special_chars = special_char1 + special_char2
 
 '''Covert characters from unicode to ascii'''
 def unicode_to_ascii(s):
@@ -15,7 +15,7 @@ def unicode_to_ascii(s):
 
 '''Normalize special characters'''
 def normalize(s):
-    # s = unicode_to_ascii(s)
+    s = unicode_to_ascii(s)
     s = re.sub(r'[^a-zA-ZƆɔɛƐↃƆɔↄᴐɛƐε’\'\"\n]+', r'', s)
     s = re.sub(r'\s+', r'', s)
     return s
@@ -32,7 +32,7 @@ def findall(s):
     match = []
     for idx, word in enumerate(s):
         for x in word:
-            if x in set(special_char1+special_char2):
+            if x in special_chars:
                 match.append(s.pop(idx))
     print(f'Length of matched words: {len(match)}')
     clean = replace(match)
@@ -44,17 +44,23 @@ def findall(s):
 
 '''Cleaning'''
 def replace(s):
+    ords = []
     for i, word in enumerate(s):
-        for idx, c in enumerate(word):
-            if idx != 0:
-                if c in set(special_char1):
-                    t = list(word)
-                    t[idx] = 'c'
-                    s[i] = ''.join(t)
-                if c in set(special_char2):
-                    t = list(word)
-                    t[idx] = special_char1[-1]
-                    s[i] = ''.join(t)
+        t = list(word)
+        for idx, c in enumerate(t):
+            if c in special_char1:
+                tt = f'{ord(c)}'
+                ords.append(tt)
+                t[idx] = chr(99)
+                print(t)
+                s[i] = ''.join(t)
+            if c in set(special_char2):
+                t = list(word)
+                t[idx] = special_char2[-1]
+                s[i] = ''.join(t)
+
+    with open('ords.txt', 'w') as f:
+        f.write('\n'.join(ords))
     return s
 
 
