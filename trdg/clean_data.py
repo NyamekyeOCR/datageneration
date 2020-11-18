@@ -1,7 +1,7 @@
 import unicodedata
 import re
 
-
+blanks = ['', '\n']
 special_char1 = [chr(390), chr(596), chr(7440), chr(8579), chr(8580)] #Character codes for all occurances of"ɔ"
 special_char2 = [chr(400), chr(603), chr(949)] #Character codes for all coccurance of "ɛ"
 special_chars = special_char1 + special_char2
@@ -44,23 +44,17 @@ def findall(s):
 
 '''Cleaning'''
 def replace(s):
-    ords = []
     for i, word in enumerate(s):
-        t = list(word)
-        for idx, c in enumerate(t):
-            if c in special_char1:
-                tt = f'{ord(c)}'
-                ords.append(tt)
-                t[idx] = chr(99)
-                print(t)
-                s[i] = ''.join(t)
-            if c in set(special_char2):
-                t = list(word)
-                t[idx] = special_char2[-1]
-                s[i] = ''.join(t)
+        word = word.replace(special_char1[0], 'c')
+        word = word.replace(special_char1[1], 'c')
+        word = word.replace(special_char1[2], 'c')
+        word = word.replace(special_char1[3], 'c')
+        word = word.replace(special_char1[4], 'c')
+        word = word.replace(special_char2[0], 'j')
+        word = word.replace(special_char2[1], 'j')
+        word = word.replace(special_char2[2], 'j')
+        s[i] = word
 
-    with open('ords.txt', 'w') as f:
-        f.write('\n'.join(ords))
     return s
 
 
