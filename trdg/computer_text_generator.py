@@ -13,7 +13,7 @@ def generate(
     character_spacing,
     fit,
     word_split,
-    stroke_width=0, 
+    stroke_width=0,
     stroke_fill="#282828",
 ):
     if orientation == 0:
@@ -32,17 +32,17 @@ def generate(
     elif orientation == 1:
         return _generate_vertical_text(
             text, font, text_color, font_size, space_width, character_spacing, fit,
-            stroke_width, stroke_fill, 
+            stroke_width, stroke_fill,
         )
     else:
         raise ValueError("Unknown orientation " + str(orientation))
 
 
 def _generate_horizontal_text(
-    text, font, text_color, font_size, space_width, character_spacing, fit, word_split, 
+    text, font, text_color, font_size, space_width, character_spacing, fit, word_split,
     stroke_width=0, stroke_fill="#282828"
 ):
-    image_font = ImageFont.truetype(font=font, size=font_size)
+    image_font = ImageFont.truetype(font=font, size=font_size, encoding='utf-8')
 
     space_width = int(image_font.getsize(" ")[0] * space_width)
 
@@ -143,7 +143,7 @@ def _generate_vertical_text(
     )
 
     stroke_colors = [ImageColor.getrgb(c) for c in stroke_fill.split(",")]
-    stroke_c1, stroke_c2 = stroke_colors[0], stroke_colors[-1] 
+    stroke_c1, stroke_c2 = stroke_colors[0], stroke_colors[-1]
 
     stroke_fill = (
         rnd.randint(stroke_c1[0], stroke_c2[0]),
