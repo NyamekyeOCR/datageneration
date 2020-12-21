@@ -9,9 +9,13 @@ special_chars = special_char1 + special_char2
 
 '''
 NOTE:
-This is a script to clean your twi words. It takes in a file of your twi corpus with a word on a single line.
-A crude since the special characters ᴐ and ɛ are sometimes not rendered in the images, we convert then to c and j respectively. This way everything is rendered since they are recognized in the fonts.
-This does not work that efficiently so sometimes you would have to go into the file and ctrl+f and change some of them manually
+This is a script to clean your twi corpus. It takes in a file of your twi corpus with a word on a single line.
+A crude  way since the special characters ᴐ and ɛ are sometimes not rendered in the images, we convert them to c and j respectively. This way everything is rendered since they are recognized in the fonts.
+This does not work that efficiently so sometimes you would have to go into the file and ctrl+f and change some of them manually.
+
+TODO:
+    - Find ways to make the special characters ᴐ and ɛ to render directly.
+    - Find ways to efficiently fix the changing of all special characters to c and j.
 '''
 
 
@@ -96,6 +100,7 @@ def main(input, output):
     print('----------------')
     print('DONE')
     print('----------------')
+
 
 '''
 Run script as
