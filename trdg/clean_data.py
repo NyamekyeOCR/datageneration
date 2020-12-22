@@ -7,6 +7,7 @@ special_char1 = [chr(390), chr(596), chr(7440), chr(8579), chr(8580)] #Character
 special_char2 = [chr(400), chr(603), chr(949)] #Character codes for all coccurance of "ɛ"
 special_chars = special_char1 + special_char2
 
+
 '''
 NOTE:
 This is a script to clean your twi corpus. It takes in a file of your twi corpus with a word on a single line.
@@ -42,7 +43,7 @@ def findall(s):
     print('----------------')
     print(f'Length of data: {len(s)}')
     print('Normalizing words')
-    s = [normalize(word) for word in s]
+    s = [word for word in s]
     match = []
     for idx, word in enumerate(s):
         for x in word:

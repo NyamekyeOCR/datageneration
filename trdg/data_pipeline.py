@@ -1,6 +1,6 @@
 import subprocess
 '''
-PS: clean_data.py won't be added to the daata pipeline since data is sometimes manually cleaded.
+PS: clean_data.py won't be added to the data pipeline since data is sometimes manually cleaded.
 
 Data Pipeline
 2. Run run.py
