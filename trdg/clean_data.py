@@ -1,6 +1,8 @@
 import unicodedata
 import re
 from fire import Fire
+from time import time
+
 
 blanks = ['', '\n']
 special_char1 = [chr(390), chr(596), chr(7440), chr(8579), chr(8580)] #Character codes for all occurances of"ɔ"
@@ -18,7 +20,6 @@ TODO:
     - Find ways to make the special characters ᴐ and ɛ to render directly.
     - Find ways to efficiently fix the changing of all special characters to c and j.
 '''
-
 
 
 '''Covert characters from unicode to ascii'''
@@ -43,7 +44,7 @@ def findall(s):
     print('----------------')
     print(f'Length of data: {len(s)}')
     print('Normalizing words')
-    s = [word for word in s]
+    s = [normalize(word) for word in s]
     match = []
     for idx, word in enumerate(s):
         for x in word:
@@ -79,6 +80,7 @@ def replace(s):
 
 
 def main(input, output):
+    start = time()
     '''Open text file'''
     print('----------------')
     print(f'READING INPUT FILE {input}')
@@ -86,6 +88,11 @@ def main(input, output):
     with open(input) as f:
         data = f.readlines()
     x = findall(data)
+    x = findall(x)
+    x = findall(x)
+    x = findall(x)
+    x = findall(x)
+    x = findall(x)
 
     '''Delete blank lines'''
     x = [line for line in x if line != '']
@@ -101,6 +108,9 @@ def main(input, output):
     print('----------------')
     print('DONE')
     print('----------------')
+
+    end = time()
+    print(f'Time: {end - start}')
 
 
 '''
