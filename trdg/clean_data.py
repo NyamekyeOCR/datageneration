@@ -59,7 +59,7 @@ def findall(s):
 
 '''Cleaning'''
 def replace(s):
-    for i, char in enumerate(s):
+    for _, char in enumerate(s):
         if char in special_char1:
             s = s.replace(char, 'c')
         if char in special_char2:
