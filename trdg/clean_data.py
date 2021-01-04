@@ -4,8 +4,9 @@ from fire import Fire
 from time import time
 
 
+
 blanks = ['', '\n']
-special_char1 = [chr(390), chr(596), chr(7440), chr(8579), chr(8580)] #Character codes for all occurances of"ɔ"
+special_char1 = [chr(1021), chr(8579), chr(390), chr(596), chr(7440),chr(8580)] #Character codes for all occurances of"ɔ"
 special_char2 = [chr(400), chr(603), chr(949)] #Character codes for all coccurance of "ɛ"
 special_chars = special_char1 + special_char2
 
@@ -44,37 +45,25 @@ def findall(s):
     print('----------------')
     print(f'Length of data: {len(s)}')
     print('Normalizing words')
-    s = [normalize(word) for word in s]
-    match = []
+    # s = [normalize(word) for word in s]
+    match = 0
     for idx, word in enumerate(s):
         for x in word:
             if x in special_chars:
-                match.append(s.pop(idx))
-    print(f'Length of matched words: {len(match)}')
-    clean = replace(match)
-    return s + clean
+                match += 1
+                s[idx] = replace(s[idx])
+                break
+    print(f'Length of matched words: {match}')
+    return s
 
 
 '''Cleaning'''
 def replace(s):
-    for i, word in enumerate(s):
-        if special_char1[0] in word:
-            word = word.replace(special_char1[0], 'c')
-        if special_char1[1] in word:
-            word = word.replace(special_char1[1], 'c')
-        if special_char1[2] in word:
-            word = word.replace(special_char1[2], 'c')
-        if special_char1[3] in word:
-            word = word.replace(special_char1[3], 'c')
-        if special_char1[4] in word:
-            word = word.replace(special_char1[4], 'c')
-        if special_char2[0] in word:
-            word = word.replace(special_char2[0], 'j')
-        if special_char2[1] in word:
-            word = word.replace(special_char2[1], 'j')
-        if special_char2[2] in word:
-            word = word.replace(special_char2[2], 'j')
-        s[i] = word
+    for i, char in enumerate(s):
+        if char in special_char1:
+            s = s.replace(char, 'c')
+        if char in special_char2:
+            s = s.replace(char, 'j')
 
     return s
 
@@ -88,10 +77,6 @@ def main(input, output):
     with open(input) as f:
         data = f.readlines()
     x = findall(data)
-    x = findall(x)
-    x = findall(x)
-    x = findall(x)
-    x = findall(x)
     x = findall(x)
 
     '''Delete blank lines'''
