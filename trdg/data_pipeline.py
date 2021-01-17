@@ -1,8 +1,8 @@
 import subprocess
 '''
-PS: clean_data.py won't be added to the data pipeline since data is sometimes manually cleaded.
 
 Data Pipeline
+1. Run clean_data.py
 2. Run run.py
 3. Run rename_files.py
 4. Run generate_gt.py
