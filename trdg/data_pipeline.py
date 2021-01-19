@@ -1,6 +1,6 @@
 import subprocess
 '''
-1. Run clean_data.py to convert special character which are not rendered. 
+1. Run clean_data.py to convert special character which are not rendered.
     Update : Some pcs are able to render the special characters fine and there is no need to run the clean_data.py files
 2. Run run.py to generate images.
     Args:
