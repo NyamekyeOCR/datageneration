@@ -6,8 +6,10 @@ from time import time
 
 
 blanks = ['', '\n']
-special_char1 = [chr(1021), chr(8579), chr(390), chr(596), chr(7440),chr(8580)] #Character codes for all occurances of"ɔ"
-special_char2 = [chr(400), chr(603), chr(949)] #Character codes for all coccurance of "ɛ"
+special_char1_small = [chr(390), chr(596), chr(7440),chr(8580)] #Character codes for all occurances of"ɔ"
+specila_char_1_big = [chr(1021), chr(8579)]
+special_char2_big = [chr(400)] #Character codes for all coccurance of "ɛ"
+special_char2_small = [chr(603), chr(949)]
 special_chars = special_char1 + special_char2
 
 
