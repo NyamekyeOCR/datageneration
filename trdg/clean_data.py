@@ -6,11 +6,11 @@ from time import time
 
 
 blanks = ['', '\n']
-special_char1_small = [chr(390), chr(596), chr(7440),chr(8580)] #Character codes for all occurances of"ɔ"
-specila_char_1_big = [chr(1021), chr(8579)]
-special_char2_big = [chr(400)] #Character codes for all coccurance of "ɛ"
-special_char2_small = [chr(603), chr(949)]
-special_chars = special_char1 + special_char2
+special_char1_small = [chr(390), chr(596), chr(7440),chr(8580)] #Character codes for small "ɔ"
+specila_char1_big = [chr(1021), chr(8579)]  #Character codes for big "ɔ"
+special_char2_big = [chr(400)] #Character codes for big "ɛ"
+special_char2_small = [chr(603), chr(949)]  #Character codes for small "ɛ"
+special_chars = special_char1_small + special_char1_big + special_char2_small + special_char2_big
 
 
 '''
@@ -62,10 +62,14 @@ def findall(s):
 '''Cleaning'''
 def replace(s):
     for _, char in enumerate(s):
-        if char in special_char1:
+        if char in special_char1_small:
             s = s.replace(char, 'c')
-        if char in special_char2:
+        if char in special_char1_big:
+            s = s.replace(char, 'C')
+        if char in special_char2_small:
             s = s.replace(char, 'j')
+        if char in special_char2_big:
+            s = s.replace(char, 'J')
 
     return s
 
