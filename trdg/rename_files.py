@@ -9,7 +9,6 @@ def rename(path):
     print('----------------')
     for x in p:
         filename = x[:-4]
-        print(filename)
         if 'c' in filename:
             filename = filename.replace('c', chr(8579)) if filename.index('c') == 0 else filename.replace('c', chr(8580))
         elif 'C' in filename:
