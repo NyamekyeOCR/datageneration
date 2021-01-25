@@ -12,6 +12,9 @@ special_char2_small = [chr(603), chr(949)]  #Character codes for small "ɛ"
 special_chars = special_char1_small + special_char1_big + special_char2_small + special_char2_big
 
 
+# Illegal characters
+illegal_chars = ["\\", "\/", "<", ">", "*", "?", "\"", "|", ":"]
+
 '''
 NOTE:
 This is a script to clean your twi corpus. It takes in a file of your twi corpus with a word on a single line.
@@ -46,7 +49,7 @@ def findall(s):
     print('----------------')
     print(f'Length of data: {len(s)}')
     print('Normalizing words')
-    # s = [normalize(word) for word in s]
+    s = [normalize(word) for word in s]
     match = 0
     for idx, word in enumerate(s):
         for x in word:
@@ -61,6 +64,8 @@ def findall(s):
 '''Cleaning'''
 def replace(s):
     for _, char in enumerate(s):
+        if char in illegal_chars:
+            s = s.replace(char, ' ')
         if char in special_char1_small:
             s = s.replace(char, 'c')
         if char in special_char1_big:
