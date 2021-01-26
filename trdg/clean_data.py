@@ -98,7 +98,7 @@ def main(input, output):
 
     '''Save cleaned text'''
     with open(output, 'w') as f:
-        f.write(''.join(x))
+        f.write('\n'.join(x))
 
     print('----------------')
     print('DONE')
