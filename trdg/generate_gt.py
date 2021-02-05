@@ -1,7 +1,7 @@
 import os
 import re
 from fire import Fire
-
+import multiprocessing as Pool
 
 def generate_lmdb(path):
     if path.endswith('/'):
