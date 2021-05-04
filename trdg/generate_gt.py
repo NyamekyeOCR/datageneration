@@ -3,7 +3,7 @@ import re
 from fire import Fire
 import multiprocessing as Pool
 
-def generate_lmdb(path):
+def generate_gt(path):
     if path.endswith('/'):
         path = path.rstrip('/')
     p = os.listdir(path)
@@ -23,4 +23,4 @@ def generate_lmdb(path):
 
 
 if __name__ == '__main__':
-    Fire(generate_lmdb)
+    Fire(generate_gt)
