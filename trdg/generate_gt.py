@@ -8,6 +8,9 @@ def generate_gt(path):
         path = path.rstrip('/')
     p = os.listdir(path)
     names = []
+    print('-----------')
+    print('STARTING')
+    print('-----------')
     for i, x in enumerate(p):
         idx = [i.start() for i in re.finditer('_', x)]
         idx = idx[-1]
@@ -18,6 +21,9 @@ def generate_gt(path):
         t = f'{target}\t{label}\n'
         names.append(t)
 
+    print('-----------')
+    print('SAVING FILE')
+    print('-----------')
     with open('gt.txt', 'w') as f:
         f.writelines(names)
 
