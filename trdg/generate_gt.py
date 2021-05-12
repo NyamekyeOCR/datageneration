@@ -24,7 +24,7 @@ def generate_gt(path):
     print('-----------')
     print('SAVING FILE')
     print('-----------')
-    with open('gt.txt', 'w') as f:
+    with open(f'{path}/gt.txt', 'w') as f:
         f.writelines(names)
 
 
