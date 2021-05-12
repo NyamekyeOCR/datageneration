@@ -8,7 +8,7 @@ def copy_files(src, dest, num_files):
     for i in range(num_files):
         src = f'{src}/{p[i]}'
         tgt = f'{src}/{p[i]}'
-        shutils.move(src, tgt)
+        shutil.move(src, tgt)
 
 
 def main():
