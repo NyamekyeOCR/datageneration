@@ -18,7 +18,7 @@ def generate_gt(path):
         src = f'{path}/{x}'
         target = f'{path}/word_{i}.jpg'
         os.rename(src, target)
-        t = f'{target}\t{label}\n'
+        t = f'word_{i}.jpg\t{label}\n'
         names.append(t)
 
     print('-----------')
